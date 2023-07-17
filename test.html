@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script >
+        function one() {
+          var img = document.getElementById('un').src;
+      
+          if (img) {
+            document.getElementById('un').src = 'OIP (5).jpg';
+          } else if (!img) {
+            document.getElementById('un').src = '14.png';
+            alert(img);
+          }
+      
+        }
+      </script>
+    <img id="un" onclick="one()"  src="OIP (5).jpg" >
+</body>
+</html>
