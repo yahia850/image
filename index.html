@@ -4,8 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>images</title>
-</head>
-<style>
+
+  <script>
+      const images=["1.png","2.jpg","3.png","4.png","5.png"];
+      const t=[];
+      let firstpick=-1;
+      let secondpick=-1;
+      let nbofpick=0;
+
+      function init(){
+        for(let i=0; i<10;i++)
+        t[i]=images[ Math.floor(Math.random() *5)];
+      }
+      function reverse(){
+        nbofpick++;
+        document.getElementById(event.target.id).src=t[event.target.id-1];
+        if(nbofpick==1)
+          firstpick=event.target.id;
+        else
+        {
+          secondpick=event.target.id;
+          if (t[firstpick-1]!=t[secondpick-1])
+            {
+              setTimeout(revert, 700);
+             
+            }
+            nbofpick=0;
+        }
+      
+       
+       
+  
+          }
+          function revert(){
+            document.getElementById(firstpick).src="back.jpg";
+            document.getElementById(secondpick).src="back.jpg";
+         
+          }
+          init();
+  </script>
+  <style>
     body,html{
   width:100%;
   height: 100%;
@@ -15,108 +53,7 @@ body{
   padding:0;
   background:#29b6f6;
 }
-.bubbles{
-  position:absolute;
-  width:100%;
-  height: 100%;
-  z-index:0;
-  overflow:hidden;
-  top:0;
-  left:0;
-}
-.bubble{
-  position: absolute;
-  bottom:-100px;
-  width:40px;
-  height: 40px;
-  background:#f1f1f1;
-  border-radius:50%;
-  opacity:0.5;
-  animation: rise 10s infinite ease-in;
-}
-.bubble:nth-child(1){
-  width:40px;
-  height:40px;
-  left:10%;
-  animation-duration:8s;
-}
-.bubble:nth-child(2){
-  width:20px;
-  height:20px;
-  left:20%;
-  animation-duration:5s;
-  animation-delay:1s;
-}
-.bubble:nth-child(3){
-  width:50px;
-  height:50px;
-  left:35%;
-  animation-duration:7s;
-  animation-delay:2s;
-}
-.bubble:nth-child(4){
-  width:80px;
-  height:80px;
-  left:50%;
-  animation-duration:11s;
-  animation-delay:0s;
-}
-.bubble:nth-child(5){
-  width:35px;
-  height:35px;
-  left:55%;
-  animation-duration:6s;
-  animation-delay:1s;
-}
-.bubble:nth-child(6){
-  width:45px;
-  height:45px;
-  left:65%;
-  animation-duration:8s;
-  animation-delay:3s;
-}
-.bubble:nth-child(7){
-  width:90px;
-  height:90px;
-  left:70%;
-  animation-duration:12s;
-  animation-delay:2s;
-}
-.bubble:nth-child(8){
-  width:25px;
-  height:25px;
-  left:80%;
-  animation-duration:6s;
-  animation-delay:2s;
-}
-.bubble:nth-child(9){
-  width:15px;
-  height:15px;
-  left:70%;
-  animation-duration:5s;
-  animation-delay:1s;
-}
-.bubble:nth-child(10){
-  width:90px;
-  height:90px;
-  left:25%;
-  animation-duration:10s;
-  animation-delay:4s;
-}
-@keyframes rise{
-  0%{
-    bottom:-100px;
-    transform:translateX(0);
-  }
-  50%{
-    transform:translate(100px);
-  }
-  100%{
-    bottom:1080px;
-    transform:translateX(-200px);
-  }
-}
-    img{width:150px; height:150px;
+img{width:150px; height:150px;
     border-radius: 8px;
     margin-top: 6rem;
       margin: 20px; }
@@ -149,40 +86,25 @@ label{
     font-style: italic;
     font-size: x-large;
 }
-.in{
-    display:flex;
-    justify-content: center;
-     align-items: center;
-}
-
 </style>
-<script>
-    
-    function one(){
-  var image = document.getElementById('un').src;
-  if (image.src.match("OIP (5).jpg")) {
-    image.src = "14.png";
-  } else {
-    image.src = "OIP (5).jpg";
-  }
-}
-</script>
+</head>
+
 <body>
     <h1>welcome</h1>
     <div class="a">
-    <img id="un" onclick="one()"src="OIP (5).jpg" >
-    <img id="deux" onclick="two()" src="OIP (5).jpg" alt="2">
-    <img id="quatre" onclick="four()" src="OIP (5).jpg" alt="4">
-    <img id="cinq" onclick="five()" src="OIP (5).jpg" alt="5">
-    <img id="trois" onclick="three()" src="OIP (5).jpg" alt="3"></div>
+    <img id="1" onclick="reverse()" src="back.jpg" >
+    <img id="2" onclick="reverse()" src="back.jpg" alt="2">
+    <img id="3" onclick="reverse()" src="back.jpg" alt="4">
+    <img id="4" onclick="reverse()" src="back.jpg" alt="5">
+    <img id="5" onclick="reverse()" src="back.jpg" alt="3"></div>
     
     <br>
     <div class="b">
-    <img id="un1" onclick="one1()"  src="OIP (5).jpg" alt="1">
-    <img id="deux2" onclick="two2()" src="OIP (5).jpg" alt="2">
-    <img id="quatre4" onclick="four4()" src="OIP (5).jpg" alt="4">
-    <img id="cinq5" onclick="five5()" src="OIP (5).jpg" alt="5">
-    <img id="trois3" onclick="three3()" src="OIP (5).jpg" alt="3">
+    <img id="6" onclick="reverse()"  src="back.jpg" alt="1">
+    <img id="7" onclick="reverse()" src="back.jpg" alt="2">
+    <img id="8" onclick="reverse()" src="back.jpg" alt="4">
+    <img id="9" onclick="reverse()" src="back.jpg" alt="5">
+    <img id="10" onclick="reverse()" src="back.jpg" alt="3">
 </div>
 <div class="in">
 <label for="joueur1">joueur1</label>
